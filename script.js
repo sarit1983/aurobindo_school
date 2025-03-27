@@ -11,6 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize form validation
     initFormValidation();
     
+    // Ensure mobile navigation is always visible on small screens
+    function forceShowMobileNav() {
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        if (mobileNavToggle && window.innerWidth <= 768) {
+            mobileNavToggle.style.display = 'flex';
+            mobileNavToggle.style.visibility = 'visible';
+            mobileNavToggle.style.opacity = '1';
+        }
+    }
+    
+    // Call immediately and on any potential layout changes
+    forceShowMobileNav();
+    window.addEventListener('resize', forceShowMobileNav);
+    window.addEventListener('orientationchange', forceShowMobileNav);
+    
     // Initialize mobile navigation functionality
     function initMobileNav() {
         const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
@@ -22,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
             function setInitialNavState() {
                 if (window.innerWidth <= 768) {
                     navLinks.style.display = 'none';
-                    mobileNavToggle.style.display = 'block';
+                    mobileNavToggle.style.display = 'flex';
+                    mobileNavToggle.style.visibility = 'visible';
+                    mobileNavToggle.style.opacity = '1';
                 } else {
                     navLinks.style.display = 'flex';
                     mobileNavToggle.style.display = 'none';
@@ -36,6 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Toggle menu on click
             mobileNavToggle.addEventListener('click', function(e) {
                 e.stopPropagation(); // Prevent event from bubbling up
+                e.preventDefault(); // Prevent default behavior
+                
                 navLinks.classList.toggle('active');
                 const isOpen = navLinks.classList.contains('active');
                 
@@ -58,6 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }, 300);
                 }
+                
+                // Add a class to the body for better styling
+                document.body.classList.toggle('mobile-menu-open', isOpen);
             });
             
             // Close mobile nav when clicking outside
@@ -75,6 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             navLinks.style.display = 'none';
                         }
                     }, 300);
+                    
+                    document.body.classList.remove('mobile-menu-open');
                 }
             });
             
@@ -93,6 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 navLinks.style.display = 'none';
                             }
                         }, 300);
+                        
+                        document.body.classList.remove('mobile-menu-open');
                     }
                 });
             });
