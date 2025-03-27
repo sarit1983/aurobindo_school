@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sri Aurobindo Integral School</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3010de127f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/">
+                    <h1>Sri Aurobindo Integral School</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/approach.html">Our Approach</a></li>
+                    <li><a href="/programs.html">Programs</a></li>
+                    <li><a href="/admissions.html">Admissions</a></li>
+                    <li><a href="/gallery.html">Gallery</a></li>
+                    <li><a href="/contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="mobile-nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header contact-header">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Get in Touch with Our School</p>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact-info-section">
+            <div class="container">
+                <div class="contact-cards">
+                    <div class="contact-card animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Visit Us</h3>
+                        <address>
+                            Sri Aurobindo Integral School<br>
+                            [Your Street Address]<br>
+                            [City, State, ZIP Code]
+                        </address>
+                    </div>
+                    
+                    <div class="contact-card animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p><a href="tel:[Your Phone Number]">[Your Phone Number]</a></p>
+                        <p class="contact-hours">Mon–Fri: 9:00 AM – 3:00 PM</p>
+                    </div>
+                    
+                    <div class="contact-card animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:info@aurobindoschool.com">info@aurobindoschool.com</a></p>
+                        <p>We respond within 24-48 hours</p>
+                    </div>
+                    
+                    <div class="contact-card animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i> Facebook</a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form & Map -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="form-container animate">
+                        <h3>Send Us a Message</h3>
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number (Optional)</label>
+                                <input type="tel" id="phone" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select id="subject" class="form-control" required>
+                                    <option value="" selected disabled>Please select</option>
+                                    <option value="admission">Admission Inquiry</option>
+                                    <option value="tour">Schedule a Tour</option>
+                                    <option value="general">General Information</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea id="message" class="form-control" rows="6" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="cta-button">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div class="map-container animate">
+                        <h3>Find Us</h3>
+                        <div class="map-embed">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d-73.9857!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTknMDguNSJX!5e0!3m2!1sen!2sus!4v1600000000000!5m2!1sen!2sus" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Sri Aurobindo Integral School</h2>
+                    <p>Nurturing Light Within</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/programs.html">Programs</a></li>
+                        <li><a href="/admissions.html">Admissions</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> [Your School Address]</p>
+                        <p><i class="fas fa-phone"></i> [Your Phone Number]</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@aurobindoschool.com">info@aurobindoschool.com</a></p>
+                    </address>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-quote">
+                    <p>"True knowledge is not attained by thinking. It is what you are; it is what you become." – Sri Aurobindo</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Sri Aurobindo Integral School. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Book tour button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookTourBtn = document.querySelector('.book-tour-btn');
+            if (bookTourBtn) {
+                bookTourBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Smooth scroll to contact form
+                    const formSection = document.querySelector('.contact-form-section');
+                    const subjectSelect = document.querySelector('#subject');
+                    
+                    if (formSection && subjectSelect) {
+                        // Set subject to "Schedule a Tour"
+                        for (let i = 0; i < subjectSelect.options.length; i++) {
+                            if (subjectSelect.options[i].value === 'tour') {
+                                subjectSelect.selectedIndex = i;
+                                break;
+                            }
+                        }
+                        
+                        // Scroll to form
+                        window.scrollTo({
+                            top: formSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Focus on first form field
+                        setTimeout(function() {
+                            document.querySelector('#name').focus();
+                        }, 800);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
