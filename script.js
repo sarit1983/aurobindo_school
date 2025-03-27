@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     
     if (mobileNavToggle) {
-        mobileNavToggle.addEventListener('click', function() {
+        mobileNavToggle.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event from bubbling up
             navLinks.classList.toggle('active');
             const isOpen = navLinks.classList.contains('active');
             
@@ -12,6 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileNavToggle.innerHTML = isOpen ? 
                 '<i class="fas fa-times"></i>' : 
                 '<i class="fas fa-bars"></i>';
+                
+            // Prevent scrolling when nav is open
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
     }
     
@@ -21,8 +29,25 @@ document.addEventListener('DOMContentLoaded', function() {
             !event.target.closest('nav') && 
             !event.target.closest('.mobile-nav-toggle')) {
             navLinks.classList.remove('active');
-            mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            if (mobileNavToggle) {
+                mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            document.body.style.overflow = '';
         }
+    });
+    
+    // Ensure navigation links in mobile view close the menu when clicked
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                if (mobileNavToggle) {
+                    mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                document.body.style.overflow = '';
+            }
+        });
     });
     
     // Smooth scrolling for anchor links
@@ -46,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (navLinks && navLinks.classList.contains('active')) {
                         navLinks.classList.remove('active');
                         mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
                     }
                 }
             }

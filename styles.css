@@ -1938,6 +1938,51 @@ textarea.form-control {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1000;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    nav {
+        position: relative;
+    }
+
+    /* Ensure the hamburger menu is visible and stays on top */
+    .mobile-nav-toggle i {
+        font-size: 1.8rem;
+    }
+    
+    /* Improve mobile nav appearance */
+    .nav-links.active {
+        right: 0;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-links li {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .nav-links a {
+        padding: 0.8rem 1rem;
+        display: block;
+        width: 100%;
+        text-align: left;
+        border-radius: 8px;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+        background-color: rgba(125, 168, 123, 0.15);
+    }
 }
 
 /* Responsive Styles */
