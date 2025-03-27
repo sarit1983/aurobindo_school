@@ -15,13 +15,25 @@ document.addEventListener('DOMContentLoaded', function() {
     function initMobileNav() {
         const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const header = document.querySelector('header');
         
         if (mobileNavToggle && navLinks) {
-            // Force-set display style to ensure it's visible on mobile
-            if (window.innerWidth <= 768) {
-                mobileNavToggle.style.display = 'block';
+            // Set initial display based on screen size
+            function setInitialNavState() {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                    mobileNavToggle.style.display = 'block';
+                } else {
+                    navLinks.style.display = 'flex';
+                    mobileNavToggle.style.display = 'none';
+                    navLinks.classList.remove('active');
+                }
             }
             
+            // Call initially
+            setInitialNavState();
+            
+            // Toggle menu on click
             mobileNavToggle.addEventListener('click', function(e) {
                 e.stopPropagation(); // Prevent event from bubbling up
                 navLinks.classList.toggle('active');
@@ -31,15 +43,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileNavToggle.innerHTML = isOpen ? 
                     '<i class="fas fa-times"></i>' : 
                     '<i class="fas fa-bars"></i>';
-                    
-                // Prevent scrolling when nav is open
-                if (isOpen) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = '';
-                }
                 
-                console.log('Mobile nav toggled, active state:', isOpen); // Debug log
+                // Add some animation to show the menu smoothly
+                if (isOpen) {
+                    navLinks.style.display = 'flex';
+                    setTimeout(() => {
+                        navLinks.style.opacity = '1';
+                    }, 10);
+                } else {
+                    navLinks.style.opacity = '0';
+                    setTimeout(() => {
+                        if (!navLinks.classList.contains('active')) {
+                            navLinks.style.display = 'none';
+                        }
+                    }, 300);
+                }
             });
             
             // Close mobile nav when clicking outside
@@ -49,7 +67,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     !event.target.closest('.mobile-nav-toggle')) {
                     navLinks.classList.remove('active');
                     mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = '';
+                    
+                    // Animate menu closing
+                    navLinks.style.opacity = '0';
+                    setTimeout(() => {
+                        if (!navLinks.classList.contains('active')) {
+                            navLinks.style.display = 'none';
+                        }
+                    }, 300);
                 }
             });
             
@@ -60,10 +85,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
                         navLinks.classList.remove('active');
                         mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                        document.body.style.overflow = '';
+                        
+                        // Animate menu closing
+                        navLinks.style.opacity = '0';
+                        setTimeout(() => {
+                            if (!navLinks.classList.contains('active')) {
+                                navLinks.style.display = 'none';
+                            }
+                        }, 300);
                     }
                 });
             });
+            
+            // Handle resize events
+            window.addEventListener('resize', setInitialNavState);
         } else {
             console.error('Mobile navigation elements not found'); // Debug log
         }
@@ -198,22 +233,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    // Check if mobile menu should be visible on window resize
-    window.addEventListener('resize', function() {
-        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-        if (mobileNavToggle) {
-            if (window.innerWidth <= 768) {
-                mobileNavToggle.style.display = 'block';
-            } else {
-                mobileNavToggle.style.display = 'none';
-                // Close mobile menu if window is resized to desktop view
-                const navLinks = document.querySelector('.nav-links');
-                if (navLinks && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            }
-        }
-    });
 }); 
