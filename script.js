@@ -18,6 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileNavToggle.style.display = 'flex';
             mobileNavToggle.style.visibility = 'visible';
             mobileNavToggle.style.opacity = '1';
+            
+            // Make sure the icon is visible and correct
+            if (!mobileNavToggle.querySelector('i')) {
+                mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
         }
     }
     
@@ -25,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     forceShowMobileNav();
     window.addEventListener('resize', forceShowMobileNav);
     window.addEventListener('orientationchange', forceShowMobileNav);
+    window.addEventListener('load', forceShowMobileNav);
     
     // Initialize mobile navigation functionality
     function initMobileNav() {
